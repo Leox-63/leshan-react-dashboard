@@ -1,0 +1,459 @@
+.client-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.dark-theme .client-details-container {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.back-button {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  background: rgba(0, 123, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(0, 123, 255, 0.2);
+  transform: translateX(-5px);
+}
+
+.dark-theme .back-button {
+  color: #4dabf7;
+  background: rgba(77, 171, 247, 0.1);
+}
+
+.dark-theme .back-button:hover {
+  background: rgba(77, 171, 247, 0.2);
+}
+
+.client-details-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.dark-theme .client-details-card {
+  background: #2d2d2d;
+  color: #e0e0e0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.client-details-title {
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.dark-theme .client-details-title {
+  color: #e0e0e0;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.details-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.refresh-button-small {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refresh-button-small:hover {
+  transform: scale(1.1) rotate(180deg);
+}
+
+.auto-refresh-toggle-small {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #495057;
+}
+
+.dark-theme .auto-refresh-toggle-small {
+  color: #e0e0e0;
+}
+
+.last-update-small {
+  color: #6c757d;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.client-detail-item {
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.client-detail-item:last-child {
+  border-bottom: none;
+}
+
+.client-detail-label {
+  color: #495057;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.client-detail-value {
+  color: #6c757d;
+}
+
+.loading-message {
+  font-size: 1.1rem;
+  color: #6c757d;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.no-data-message {
+  color: #6c757d;
+  text-align: center;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.object-links-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.object-link-badge {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dark-theme .object-link-badge {
+  background: linear-gradient(45deg, #4dabf7, #339af0);
+}
+
+/* Estilos para objetos IPSO mejorados */
+.device-capabilities {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dark-theme .device-capabilities {
+  background: linear-gradient(135deg, #2d2d2d, #3a3a3a);
+  color: #e0e0e0;
+}
+
+.capabilities-title {
+  margin: 0 0 1rem 0;
+  color: #495057;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.dark-theme .capabilities-title {
+  color: #e0e0e0;
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+}
+
+.capability-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.capability-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.dark-theme .capability-item {
+  background: #404040;
+  color: #e0e0e0;
+}
+
+.capability-icon {
+  font-size: 1.2rem;
+}
+
+.capability-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Estilos específicos por tipo de capacidad */
+.capability-item.temperature { border-left: 4px solid #ff4757; }
+.capability-item.humidity { border-left: 4px solid #3742fa; }
+.capability-item.gps { border-left: 4px solid #10ac84; }
+.capability-item.battery { border-left: 4px solid #2ed573; }
+.capability-item.actuator { border-left: 4px solid #ffa502; }
+
+/* Estilos para el resumen de categorías */
+.ipso-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+
+.category-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+.category-badge.environmental {
+  background: linear-gradient(45deg, #ff4757, #ff3838);
+}
+
+.category-badge.actuator {
+  background: linear-gradient(45deg, #ffa502, #ff8c00);
+}
+
+.category-badge.system {
+  background: linear-gradient(45deg, #747d8c, #57606f);
+}
+
+/* Contenedor principal de objetos IPSO */
+.ipso-objects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* Badge individual de objeto IPSO */
+.ipso-object-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ipso-object-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.dark-theme .ipso-object-badge {
+  background: #404040;
+  color: #e0e0e0;
+}
+
+.ipso-icon {
+  font-size: 1.5rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.ipso-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex-grow: 1;
+}
+
+.ipso-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2c3e50;
+}
+
+.dark-theme .ipso-name {
+  color: #ecf0f1;
+}
+
+.ipso-unit {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.dark-theme .ipso-unit {
+  color: #bdc3c7;
+}
+
+.ipso-unknown {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* Mensaje cuando no hay objetos */
+.no-objects-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem;
+  color: #95a5a6;
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+.no-objects-icon {
+  font-size: 2rem;
+}
+
+.no-objects-text {
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .client-details-container {
+    padding: 1rem;
+  }
+  
+  .client-details-card {
+    padding: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .client-details-title {
+    font-size: 1.5rem;
+  }
+  
+  .details-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .details-controls {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .object-links-container {
+    justify-content: center;
+  }
+  
+  .client-detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  
+  .client-detail-label {
+    font-size: 0.9rem;
+  }
+  
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ipso-objects-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .ipso-object-badge {
+    padding: 0.8rem;
+  }
+  
+  .device-capabilities {
+    padding: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.client-details-card {
+  animation: slideIn 0.6s ease-out;
+}
+
+.client-detail-item {
+  animation: slideIn 0.6s ease-out;
+  animation-delay: calc(var(--item-index, 0) * 0.1s);
+}
