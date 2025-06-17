@@ -188,13 +188,14 @@
   background: linear-gradient(45deg, #4dabf7, #339af0);
 }
 
-/* Estilos para objetos IPSO mejorados */
+/* Estilos para objetos IPSO mejorados - Más contrastados */
 .device-capabilities {
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  background: linear-gradient(135deg, #475569, #334155);
   border-radius: 12px;
   padding: 1.5rem;
   margin: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  color: #f8fafc;
 }
 
 .dark-theme .device-capabilities {
@@ -204,7 +205,7 @@
 
 .capabilities-title {
   margin: 0 0 1rem 0;
-  color: #495057;
+  color: #f8fafc;
   font-size: 1.1rem;
   font-weight: 600;
 }
@@ -224,15 +225,16 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.8rem;
-  background: white;
+  background: rgba(30, 41, 59, 0.8);
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   transition: transform 0.2s ease;
+  color: #f1f5f9;
 }
 
 .capability-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 
 .dark-theme .capability-item {
@@ -284,6 +286,22 @@
   background: linear-gradient(45deg, #747d8c, #57606f);
 }
 
+.category-badge.multimedia {
+  background: linear-gradient(45deg, #e17055, #d63031);
+}
+
+.category-badge.location {
+  background: linear-gradient(45deg, #00b894, #00a085);
+}
+
+.category-badge.power {
+  background: linear-gradient(45deg, #2ed573, #27ae60);
+}
+
+.category-badge.other {
+  background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+}
+
 /* Contenedor principal de objetos IPSO */
 .ipso-objects-container {
   display: grid;
@@ -292,23 +310,24 @@
   margin-top: 1rem;
 }
 
-/* Badge individual de objeto IPSO */
+/* Badge individual de objeto IPSO - Más contrastado */
 .ipso-object-badge {
   display: flex;
   align-items: center;
   gap: 0.8rem;
   padding: 1rem;
-  background: white;
+  background: linear-gradient(135deg, #475569, #334155);
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  color: #f8fafc;
 }
 
 .ipso-object-badge:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
 }
 
 .dark-theme .ipso-object-badge {
@@ -332,7 +351,7 @@
 .ipso-name {
   font-weight: 600;
   font-size: 0.9rem;
-  color: #2c3e50;
+  color: #f1f5f9;
 }
 
 .dark-theme .ipso-name {
@@ -341,7 +360,7 @@
 
 .ipso-unit {
   font-size: 0.8rem;
-  color: #7f8c8d;
+  color: #cbd5e1;
   font-style: italic;
 }
 
@@ -349,44 +368,87 @@
   color: #bdc3c7;
 }
 
+/* 🆕 Estilos mejorados para objetos IPSO desconocidos */
 .ipso-unknown {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background: #e74c3c;
+  background: rgba(255, 255, 255, 0.2);
   color: white;
   border-radius: 50%;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 18px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.7rem;
   font-weight: bold;
+  margin-left: auto;
+  cursor: help;
 }
 
-/* Mensaje cuando no hay objetos */
-.no-objects-message {
+.ipso-object-badge:hover .ipso-unknown {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 🎨 Categorías específicas para objetos desconocidos */
+.ipso-object-badge[data-category="Unknown"] {
+  opacity: 0.8;
+  border-style: dashed !important;
+}
+
+.ipso-object-badge[data-category="Other"] {
+  background: linear-gradient(135deg, #95a5a6, #bdc3c7) !important;
+}
+
+/* 🔍 Tooltips mejorados */
+.ipso-object-badge[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 1000;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 5px;
+}
+
+/* 📊 Contador mejorado */
+.ipso-summary {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  padding: 2rem;
-  color: #95a5a6;
-  text-align: center;
-  grid-column: 1 / -1;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  background: rgba(0, 123, 255, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
 }
 
-.no-objects-icon {
-  font-size: 2rem;
+.dark-theme .ipso-summary {
+  background: rgba(0, 123, 255, 0.1);
+  border-left-color: #4dabf7;
 }
 
-.no-objects-text {
-  font-style: italic;
-  font-size: 0.9rem;
+/* 🎯 Animaciones suaves */
+.ipso-object-badge {
+  animation: slideInUp 0.3s ease-out;
 }
 
-/* Responsive design */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsividad mejorada */
 @media (max-width: 768px) {
   .client-details-container {
     padding: 1rem;
@@ -456,4 +518,593 @@
 .client-detail-item {
   animation: slideIn 0.6s ease-out;
   animation-delay: calc(var(--item-index, 0) * 0.1s);
+}
+
+/* 🎨 Estados de hover mejorados */
+.ipso-object-badge:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.dark-theme .ipso-object-badge:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Estilos para control interactivo de objetos IPSO */
+.ipso-control-indicator {
+  font-size: 0.9rem;
+  margin-left: auto;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.ipso-object-badge:hover .ipso-control-indicator {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.ipso-object-badge {
+  cursor: pointer;
+}
+
+.ipso-object-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ipso-object-badge:active {
+  transform: translateY(0);
+}
+
+.ipso-interactive-control {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #007bff;
+}
+
+.dark-theme .ipso-interactive-control {
+  background: linear-gradient(135deg, #2d2d2d, #3a3a3a);
+  border-left-color: #4dabf7;
+  color: #e0e0e0;
+}
+
+.ipso-interactive-control h3 {
+  margin: 0 0 1rem 0;
+  color: #495057;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.dark-theme .ipso-interactive-control h3 {
+  color: #e0e0e0;
+}
+
+/* 🌐 ESTILOS ELEGANTES PARA LA DIRECCIÓN IP */
+.client-address-item {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+  margin: 16px 0 !important;
+  border: none !important;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.25), 
+              0 4px 16px rgba(118, 75, 162, 0.15) !important;
+  backdrop-filter: blur(10px) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.client-address-item:hover {
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.35), 
+              0 8px 24px rgba(118, 75, 162, 0.25) !important;
+}
+
+.client-address-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    transparent 50%, 
+    rgba(255, 255, 255, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.client-address-item:hover::before {
+  opacity: 1;
+}
+
+.address-label {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  font-size: 1.2rem !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
+  display: inline-block !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 8px 16px !important;
+  border-radius: 25px !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  margin-right: 20px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+.address-value {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  background: rgba(254, 252, 232, 0.8) !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(245, 158, 11, 0.15) !important;
+  font-family: 'SF Mono', 'Monaco', 'Menlo', monospace !important;
+}
+
+/* Sin efectos extravagantes */
+
+/* Tema oscuro elegante */
+.dark-theme .client-address-item {
+  background: linear-gradient(135deg, #374151 0%, #4b5563 100%) !important;
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+.dark-theme .address-label,
+.dark-theme .address-value {
+  color: #f9fafb !important;
+  background: rgba(31, 41, 55, 0.6) !important;
+}
+
+/* Responsive limpio y profesional */
+
+/* 🏷️ ESTILOS ELEGANTES PARA ENDPOINT - MÁS CONTRASTADO */
+.client-endpoint-item {
+  background: linear-gradient(135deg, #475569 0%, #334155 100%) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin: 12px 0 !important;
+  border: 1px solid rgba(148, 163, 184, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), 
+              0 1px 3px rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.client-endpoint-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 
+              0 2px 6px rgba(0, 0, 0, 0.2) !important;
+  border-color: rgba(99, 102, 241, 0.5) !important;
+}
+
+.client-endpoint-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.client-endpoint-item:hover::before {
+  opacity: 1;
+}
+
+.endpoint-label {
+  color: #f8fafc !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-right: 16px !important;
+  background: rgba(99, 102, 241, 0.6) !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(99, 102, 241, 0.4) !important;
+}
+
+.endpoint-value {
+  color: #f1f5f9 !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  background: rgba(30, 41, 59, 0.8) !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(148, 163, 184, 0.3) !important;
+  font-family: 'SF Mono', 'Monaco', 'Menlo', monospace !important;
+}
+
+/* 🎨 PALETA ELEGANTE Y SOFISTICADA PARA TODOS LOS CAMPOS */
+
+/* 🔑 Registration ID - Azul Sofisticado y Contrastado */
+.client-registration-item {
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin: 12px 0 !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25), 
+              0 1px 3px rgba(30, 58, 138, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.client-registration-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(30, 64, 175, 0.35) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+}
+
+.client-registration-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #0ea5e9, #0284c7);
+}
+
+.registration-label {
+  color: #f8fafc !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-right: 16px !important;
+  background: rgba(59, 130, 246, 0.6) !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(59, 130, 246, 0.4) !important;
+}
+
+.registration-value {
+  color: #f1f5f9 !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  background: rgba(30, 41, 59, 0.8) !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  font-family: 'SF Mono', 'Monaco', 'Menlo', monospace !important;
+}
+
+/* 🌐 Address - Más Contrastado y Elegante */
+.client-address-item {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin: 12px 0 !important;
+  border: 1px solid rgba(251, 146, 60, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25), 
+              0 1px 3px rgba(180, 83, 9, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.client-address-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(217, 119, 6, 0.35) !important;
+  border-color: rgba(251, 146, 60, 0.5) !important;
+}
+
+.client-address-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.address-label {
+  color: #f8fafc !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-right: 16px !important;
+  background: rgba(251, 146, 60, 0.6) !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(251, 146, 60, 0.4) !important;
+}
+
+.address-value {
+  color: #f1f5f9 !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  background: rgba(30, 41, 59, 0.8) !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(251, 146, 60, 0.3) !important;
+  font-family: 'SF Mono', 'Monaco', 'Menlo', monospace !important;
+}
+
+/* 📅 Registration Date - Verde Contrastado */
+.client-date-item {
+  background: linear-gradient(135deg, #166534 0%, #14532d 100%) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin: 12px 0 !important;
+  border: 1px solid rgba(34, 197, 94, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(22, 101, 52, 0.25), 
+              0 1px 3px rgba(20, 83, 45, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.client-date-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(22, 101, 52, 0.35) !important;
+  border-color: rgba(34, 197, 94, 0.5) !important;
+}
+
+.client-date-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.date-label {
+  color: #f8fafc !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-right: 16px !important;
+  background: rgba(34, 197, 94, 0.6) !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(34, 197, 94, 0.4) !important;
+}
+
+.date-value {
+  color: #f1f5f9 !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  background: rgba(30, 41, 59, 0.8) !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(34, 197, 94, 0.3) !important;
+}
+
+/* 🔄 Last Update - Gris Contrastado y Elegante */
+.client-update-item {
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin: 12px 0 !important;
+  border: 1px solid rgba(156, 163, 175, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(55, 65, 81, 0.25), 
+              0 1px 3px rgba(31, 41, 55, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.client-update-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(55, 65, 81, 0.35) !important;
+  border-color: rgba(156, 163, 175, 0.5) !important;
+}
+
+.client-update-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #64748b, #475569);
+}
+
+.update-label {
+  color: #f8fafc !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-right: 16px !important;
+  background: rgba(156, 163, 175, 0.6) !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(156, 163, 175, 0.4) !important;
+}
+
+.update-value {
+  color: #f1f5f9 !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  background: rgba(30, 41, 59, 0.8) !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(156, 163, 175, 0.3) !important;
+}
+
+/* ⏱️ Lifetime - Violeta Contrastado */
+.client-lifetime-item {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin: 12px 0 !important;
+  border: 1px solid rgba(168, 85, 247, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25), 
+              0 1px 3px rgba(109, 40, 217, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.client-lifetime-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35) !important;
+  border-color: rgba(168, 85, 247, 0.5) !important;
+}
+
+.client-lifetime-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #a855f7, #9333ea);
+}
+
+.lifetime-label {
+  color: #f8fafc !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-right: 16px !important;
+  background: rgba(168, 85, 247, 0.6) !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(168, 85, 247, 0.4) !important;
+}
+
+.lifetime-value {
+  color: #f1f5f9 !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  background: rgba(30, 41, 59, 0.8) !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(168, 85, 247, 0.3) !important;
+  font-family: 'SF Mono', 'Monaco', 'Menlo', monospace !important;
+}
+
+/* 📱 SMS Number - Rosa Contrastado */
+.client-sms-item {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin: 12px 0 !important;
+  border: 1px solid rgba(236, 72, 153, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25), 
+              0 1px 3px rgba(219, 39, 119, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.client-sms-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.35) !important;
+  border-color: rgba(236, 72, 153, 0.5) !important;
+}
+
+.client-sms-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #ec4899, #db2777);
+}
+
+.sms-label {
+  color: #f8fafc !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-right: 16px !important;
+  background: rgba(236, 72, 153, 0.6) !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(236, 72, 153, 0.4) !important;
+}
+
+.sms-value {
+  color: #f1f5f9 !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  background: rgba(30, 41, 59, 0.8) !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(236, 72, 153, 0.3) !important;
+  font-family: 'SF Mono', 'Monaco', 'Menlo', monospace !important;
+}
+
+/* Efectos suaves y profesionales */
+.client-endpoint-item::before,
+.client-registration-item::before,
+.client-address-item::before,
+.client-date-item::before,
+.client-update-item::before,
+.client-lifetime-item::before,
+.client-sms-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+/* Hover suave y profesional */
+.client-endpoint-item:hover::before,
+.client-registration-item:hover::before,
+.client-address-item:hover::before,
+.client-date-item:hover::before,
+.client-update-item:hover::before,
+.client-lifetime-item:hover::before,
+.client-sms-item:hover::before {
+  height: 3px;
+  opacity: 1;
+}
+
+/* Sin animaciones distractoras */
+.client-endpoint-item,
+.client-registration-item,
+.client-address-item,
+.client-date-item,
+.client-update-item,
+.client-lifetime-item,
+.client-sms-item {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Layout responsive y elegante */
+@media (max-width: 768px) {
+  .client-endpoint-item,
+  .client-registration-item,
+  .client-address-item,
+  .client-date-item,
+  .client-update-item,
+  .client-lifetime-item,
+  .client-sms-item {
+    padding: 20px 16px !important;
+  }
+  
+  .endpoint-label, .registration-label, .address-label,
+  .date-label, .update-label, .lifetime-label, .sms-label {
+    margin-right: 0 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+  }
+  
+  .endpoint-value, .registration-value, .address-value,
+  .date-value, .update-value, .lifetime-value, .sms-value {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
 }

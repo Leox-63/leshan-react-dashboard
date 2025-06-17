@@ -5,8 +5,8 @@
 }
 
 .light-theme {
-  background-color: #f8f9fa;
-  color: #333;
+  background-color: #1e293b;
+  color: #f1f5f9;
 }
 
 .dark-theme {
@@ -144,11 +144,12 @@
 }
 
 .client-card {
-  background: white;
+  background: linear-gradient(135deg, #475569, #334155);
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
   padding: 1.5rem;
   transition: all 0.3s ease;
+  color: #f8fafc;
   text-decoration: none;
   color: inherit;
 }
@@ -169,14 +170,14 @@
 }
 
 .client-endpoint {
-  color: #007bff;
+  color: #60a5fa;
   font-weight: 600;
   font-size: 1.2rem;
   margin: 0 0 0.5rem 0;
 }
 
 .client-status {
-  color: #28a745;
+  color: #34d399;
   font-size: 0.9rem;
   margin: 0;
   font-weight: 500;

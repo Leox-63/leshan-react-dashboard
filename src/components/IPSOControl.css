@@ -1,0 +1,801 @@
+/* Estilos sexys para el componente IPSOControl */
+.ipso-control {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 15px 35px rgba(44, 62, 80, 0.4);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.ipso-control:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(44, 62, 80, 0.5);
+}
+
+.ipso-control-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3); /* Más oscuro para contraste */
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ipso-control-icon {
+  font-size: 2rem;
+  margin-right: 15px;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes glow {
+  0% { 
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  100% { 
+    text-shadow: 0 0 25px rgba(0, 255, 136, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Títulos elegantes para TODAS las categorías */
+.ipso-control .ipso-control-title {
+  color: #ecf0f1 !important;
+  font-weight: 700 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+  background: linear-gradient(45deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.9)) !important;
+  padding: 8px 16px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(236, 240, 241, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3) !important;
+  margin: 0 !important;
+  display: inline-block !important;
+  flex: 1;
+}
+
+/* Títulos específicos por categoría con colores temáticos */
+.ipso-control[data-category="Environmental"] .ipso-control-title {
+  background: linear-gradient(45deg, rgba(39, 174, 96, 0.9), rgba(46, 204, 113, 0.9)) !important;
+  border: 1px solid rgba(46, 204, 113, 0.4) !important;
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3) !important;
+}
+
+.ipso-control[data-category="Location"] .ipso-control-title,
+.ipso-control[data-category="location"] .ipso-control-title {
+  background: linear-gradient(45deg, rgba(30, 60, 114, 0.9), rgba(42, 82, 152, 0.9)) !important;
+  border: 1px solid rgba(79, 172, 254, 0.4) !important;
+  box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3) !important;
+}
+
+.ipso-control[data-category="Actuator"] .ipso-control-title {
+  background: linear-gradient(45deg, rgba(142, 68, 173, 0.9), rgba(155, 89, 182, 0.9)) !important;
+  border: 1px solid rgba(155, 89, 182, 0.4) !important;
+  box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3) !important;
+}
+
+.ipso-control[data-category="Power"] .ipso-control-title {
+  background: linear-gradient(45deg, rgba(243, 156, 18, 0.9), rgba(230, 126, 34, 0.9)) !important;
+  border: 1px solid rgba(230, 126, 34, 0.4) !important;
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3) !important;
+}
+
+.ipso-control[data-category="Multimedia"] .ipso-control-title {
+  background: linear-gradient(45deg, rgba(231, 76, 60, 0.9), rgba(192, 57, 43, 0.9)) !important;
+  border: 1px solid rgba(192, 57, 43, 0.4) !important;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3) !important;
+}
+
+.ipso-control-id {
+  margin-left: auto;
+  color: #ffffff;
+  font-size: 0.75rem; /* Más pequeño */
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px 8px; /* Más pequeño */
+  border-radius: 12px; /* Más pequeño */
+  font-weight: 500; /* Menos bold */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.ipso-control-error {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+}
+
+.clear-error-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.clear-error-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.ipso-control-resources {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Gap más pequeño */
+}
+
+.ipso-resource {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 15px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  position: relative; /* Para posicionamiento absoluto del valor */
+  min-height: 60px; /* Altura mínima para el valor */
+}
+
+.ipso-resource:hover {
+  background: rgba(0, 0, 0, 0.35);
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Info del recurso en la parte superior */
+.resource-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px; /* Más espacio para el valor abajo */
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Valor en la esquina inferior derecha */
+.resource-value {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  color: #00ff88;
+  font-weight: bold;
+  font-size: 1.1rem; /* Un poquito más pequeño */
+  text-shadow: 0 0 15px rgba(0, 255, 136, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8);
+  animation: glow 2s ease-in-out infinite alternate;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 3px 8px; /* Más compacto */
+  border-radius: 12px; /* Más pequeño */
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  z-index: 10;
+}
+
+/* Ajustar acciones para que no choquen con el valor */
+.resource-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-right: 80px; /* Espacio para el valor */
+  margin-bottom: 10px;
+}
+
+/* Para recursos sin valor, quitar el margen */
+.ipso-resource:not(:has(.resource-value)) .resource-actions {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+/* Para location, usar color azul para el valor */
+.ipso-control[data-category="Location"] .resource-value {
+  color: #00d4ff;
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+/* Responsive: en móviles, valor abajo centrado */
+@media (max-width: 768px) {
+  .resource-value {
+    position: static;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .resource-actions {
+    margin-right: 0;
+  }
+}
+
+.write-controls, .execute-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.write-input, .execute-input {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 10px 15px;
+  color: white;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  min-width: 150px;
+  backdrop-filter: blur(5px);
+}
+
+.write-input:focus, .execute-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.write-input::placeholder, .execute-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Estilos para botones - MÁXIMA VISIBILIDAD */
+.btn-read, .btn-write, .btn-execute {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px; /* Más padding para mejor apariencia */
+  color: #ffffff !important;
+  font-weight: 900 !important; /* Peso máximo */
+  font-size: 1rem !important; /* Tamaño más grande */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Más espaciado */
+  backdrop-filter: blur(10px);
+  border: 3px solid rgba(255, 255, 255, 0.6) !important;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 1), 0 0 20px rgba(255, 255, 255, 0.3) !important;
+  outline: 2px solid rgba(102, 126, 234, 0.8) !important;
+  outline-offset: 2px !important;
+  min-width: 80px; /* Ancho mínimo */
+}
+
+.btn-read:hover, .btn-write:hover, .btn-execute:hover {
+  background: linear-gradient(45deg, #764ba2, #667eea);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6), 0 0 40px rgba(102, 126, 234, 0.4);
+  color: #ffffff !important;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 1), 0 0 30px rgba(255, 255, 255, 0.5) !important;
+  border: 3px solid #ffffff !important;
+  outline: 3px solid rgba(102, 126, 234, 1) !important;
+}
+
+/* Estados disabled con mayor contraste */
+.btn-read:disabled, .btn-write:disabled, .btn-execute:disabled {
+  background: linear-gradient(45deg, #444444, #666666) !important;
+  color: #cccccc !important;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
+  border: 2px solid rgba(200, 200, 200, 0.5) !important;
+  outline: none !important;
+  font-weight: 700 !important;
+}
+
+/* Estilos de focus para accesibilidad */
+.btn-read:focus, .btn-write:focus, .btn-execute:focus {
+  outline: 4px solid #ffffff !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.3), 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Estilos específicos para alta visibilidad en pantallas pequeñas */
+@media (max-width: 768px) {
+  .btn-read, .btn-write, .btn-execute {
+    font-size: 1.1rem !important;
+    padding: 14px 24px !important;
+    min-width: 100px !important;
+    font-weight: 900 !important;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 1), 0 0 25px rgba(255, 255, 255, 0.4) !important;
+    border: 4px solid rgba(255, 255, 255, 0.8) !important;
+  }
+}
+
+/* Animación de pulso para botones activos */
+@keyframes button-pulse {
+  0% { 
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  }
+  50% { 
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+  }
+  100% { 
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  }
+}
+
+.btn-read:not(:disabled), .btn-write:not(:disabled), .btn-execute:not(:disabled) {
+  animation: button-pulse 3s ease-in-out infinite;
+}
+
+.ipso-control-loading {
+  text-align: center;
+  padding: 20px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Estilos específicos por categoría de objeto IPSO (case-insensitive) */
+.ipso-control[data-category="Location"], 
+.ipso-control[data-category="location"] {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
+  border: 1px solid rgba(79, 172, 254, 0.3) !important;
+}
+
+.ipso-control[data-category="Location"]:hover, 
+.ipso-control[data-category="location"]:hover {
+  box-shadow: 0 20px 40px rgba(79, 172, 254, 0.4) !important;
+  transform: translateY(-5px);
+}
+
+/* Iconos especiales para Location Object */
+.ipso-control[data-category="Location"] .ipso-control-icon,
+.ipso-control[data-category="location"] .ipso-control-icon {
+  font-size: 2.5rem !important;
+  filter: drop-shadow(0 0 15px rgba(78, 205, 196, 0.5)) !important;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Headers especiales */
+.ipso-control[data-category="Location"] .ipso-control-header,
+.ipso-control[data-category="location"] .ipso-control-header {
+  background: rgba(79, 172, 254, 0.2) !important;
+  border: 1px solid rgba(79, 172, 254, 0.3) !important;
+}
+
+.ipso-control[data-category="Location"] .ipso-control-id {
+  background: rgba(79, 172, 254, 0.3) !important;
+  border: 1px solid rgba(79, 172, 254, 0.5) !important;
+  color: #ffffff !important;
+}
+
+/* Recursos específicos para location */
+.ipso-control[data-category="location"] .ipso-resource {
+  background: rgba(79, 172, 254, 0.15) !important;
+  border: 1px solid rgba(79, 172, 254, 0.2) !important;
+}
+
+.ipso-control[data-category="location"] .ipso-resource:hover {
+  background: rgba(79, 172, 254, 0.25) !important;
+}
+
+/* Valores de coordenadas especiales */
+.ipso-control[data-category="location"] .resource-value {
+  color: #00d4ff;
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+/* Recursos específicos para System (Device Object) - Estilo elegante */
+.ipso-control[data-category="System"] .ipso-resource {
+  background: rgba(52, 58, 70, 0.6) !important;
+  border: 1px solid rgba(108, 123, 138, 0.4) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.ipso-control[data-category="System"] .ipso-resource:hover {
+  background: rgba(52, 58, 70, 0.8) !important;
+  border: 1px solid rgba(136, 142, 176, 0.6) !important;
+}
+
+/* Valores del System category - Estilo elegante */
+.ipso-control[data-category="System"] .resource-value {
+  color: #f8f9fa;
+  font-weight: 800 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+  border: 2px solid rgba(236, 240, 241, 0.3);
+  background: linear-gradient(45deg, rgba(52, 73, 94, 0.9), rgba(44, 62, 80, 0.9));
+  font-size: 1.2rem !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Texto elegante para todos los elementos System */
+.ipso-control[data-category="System"] .resource-name,
+.ipso-control[data-category="System"] .resource-id,
+.ipso-control[data-category="System"] .resource-unit {
+  color: #ecf0f1 !important;
+  font-weight: 700 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6) !important;
+  font-size: 1rem !important;
+}
+
+/* Nombre del recurso extra elegante */
+.ipso-control[data-category="System"] .resource-name {
+  font-weight: 800 !important;
+  font-size: 1.1rem !important;
+  color: #f8f9fa !important;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* ID del recurso con estilo premium */
+.ipso-control[data-category="System"] .resource-id {
+  background: linear-gradient(45deg, #2c3e50, #34495e) !important;
+  padding: 4px 8px !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(236, 240, 241, 0.3) !important;
+  font-weight: 700 !important;
+  color: #bdc3c7 !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+/* Unit con diseño sofisticado */
+.ipso-control[data-category="System"] .resource-unit {
+  background: linear-gradient(45deg, rgba(52, 73, 94, 0.8), rgba(44, 62, 80, 0.8)) !important;
+  padding: 3px 8px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-style: italic !important;
+  color: #95a5a6 !important;
+  border: 1px solid rgba(149, 165, 166, 0.3) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+/* Botones elegantes para toda la categoría System */
+.ipso-control[data-category="System"] .btn-read,
+.ipso-control[data-category="System"] .btn-write,
+.ipso-control[data-category="System"] .btn-execute {
+  background: linear-gradient(45deg, #34495e, #2c3e50) !important;
+  color: #ecf0f1 !important;
+  font-weight: 700 !important;
+  border: 2px solid rgba(236, 240, 241, 0.3) !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 6px 20px rgba(52, 73, 94, 0.4) !important;
+}
+
+.ipso-control[data-category="System"] .btn-read:hover,
+.ipso-control[data-category="System"] .btn-write:hover,
+.ipso-control[data-category="System"] .btn-execute:hover {
+  background: linear-gradient(45deg, #2c3e50, #34495e) !important;
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 10px 30px rgba(52, 73, 94, 0.6) !important;
+  border-color: rgba(236, 240, 241, 0.5) !important;
+}
+
+/* Estilos específicos para Security Object (ID 0) - Elegancia total */
+.ipso-control[data-object-id="0"] {
+  background: linear-gradient(135deg, #6c7b8a 0%, #8a92a5 100%) !important;
+  border: 1px solid rgba(108, 123, 138, 0.6) !important;
+  box-shadow: 0 15px 35px rgba(108, 123, 138, 0.25) !important;
+}
+
+.ipso-control[data-object-id="0"]:hover {
+  box-shadow: 0 25px 50px rgba(108, 123, 138, 0.4) !important;
+  transform: translateY(-8px);
+}
+
+.ipso-control[data-object-id="0"] .ipso-control-header {
+  background: rgba(52, 58, 70, 0.85) !important;
+  border: 1px solid rgba(108, 123, 138, 0.4) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+.ipso-control[data-object-id="0"] .ipso-control-id {
+  background: linear-gradient(45deg, #2c3e50, #34495e) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ecf0f1 !important;
+  font-weight: 700 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.ipso-control[data-object-id="0"] .ipso-control-title {
+  color: #ecf0f1 !important;
+  font-weight: 700 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+  background: linear-gradient(45deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.9)) !important;
+  padding: 8px 16px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(236, 240, 241, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3) !important;
+  margin: 0 !important;
+  display: inline-block !important;
+}
+
+.ipso-control[data-object-id="0"] .ipso-resource {
+  background: rgba(52, 58, 70, 0.6) !important;
+  border: 1px solid rgba(108, 123, 138, 0.4) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.ipso-control[data-object-id="0"] .ipso-resource:hover {
+  background: rgba(52, 58, 70, 0.8) !important;
+  border: 1px solid rgba(136, 142, 176, 0.6) !important;
+}
+
+.ipso-control[data-object-id="0"] .resource-value {
+  color: #f8f9fa;
+  font-weight: 800 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+  border: 2px solid rgba(236, 240, 241, 0.3);
+  background: linear-gradient(45deg, rgba(52, 73, 94, 0.9), rgba(44, 62, 80, 0.9));
+  font-size: 1.2rem !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Texto elegante y sofisticado para todos los elementos del Security Object */
+.ipso-control[data-object-id="0"] .resource-name,
+.ipso-control[data-object-id="0"] .resource-id,
+.ipso-control[data-object-id="0"] .resource-unit {
+  color: #ecf0f1 !important;
+  font-weight: 700 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6) !important;
+  font-size: 1rem !important;
+}
+
+/* Nombre del recurso extra elegante */
+.ipso-control[data-object-id="0"] .resource-name {
+  font-weight: 800 !important;
+  font-size: 1.1rem !important;
+  color: #f8f9fa !important;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* ID del recurso con estilo premium */
+.ipso-control[data-object-id="0"] .resource-id {
+  background: linear-gradient(45deg, #2c3e50, #34495e) !important;
+  padding: 4px 8px !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(236, 240, 241, 0.3) !important;
+  font-weight: 700 !important;
+  color: #bdc3c7 !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+/* Unit con diseño sofisticado */
+.ipso-control[data-object-id="0"] .resource-unit {
+  background: linear-gradient(45deg, rgba(52, 73, 94, 0.8), rgba(44, 62, 80, 0.8)) !important;
+  padding: 3px 8px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-style: italic !important;
+  color: #95a5a6 !important;
+  border: 1px solid rgba(149, 165, 166, 0.3) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+/* Botones elegantes y sofisticados para Security Object */
+.ipso-control[data-object-id="0"] .btn-read,
+.ipso-control[data-object-id="0"] .btn-write,
+.ipso-control[data-object-id="0"] .btn-execute {
+  background: linear-gradient(45deg, #34495e, #2c3e50) !important;
+  color: #ecf0f1 !important;
+  font-weight: 700 !important;
+  border: 2px solid rgba(236, 240, 241, 0.3) !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 6px 20px rgba(52, 73, 94, 0.4) !important;
+}
+
+.ipso-control[data-object-id="0"] .btn-read:hover,
+.ipso-control[data-object-id="0"] .btn-write:hover,
+.ipso-control[data-object-id="0"] .btn-execute:hover {
+  background: linear-gradient(45deg, #2c3e50, #34495e) !important;
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 10px 30px rgba(52, 73, 94, 0.6) !important;
+  border-color: rgba(236, 240, 241, 0.5) !important;
+}
+
+/* Botones especiales para location */
+.ipso-control[data-category="location"] .btn-read {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  box-shadow: 0 6px 20px rgba(79, 172, 254, 0.3);
+}
+
+.ipso-control[data-category="location"] .btn-read:hover {
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.5);
+}
+
+/* También agreguemos para System (Device Object) - Estilo elegante para todos */
+.ipso-control[data-category="System"] {
+  background: linear-gradient(135deg, #6c7b8a 0%, #8a92a5 100%) !important;
+  border: 1px solid rgba(108, 123, 138, 0.6) !important;
+  box-shadow: 0 15px 35px rgba(108, 123, 138, 0.25) !important;
+}
+
+.ipso-control[data-category="System"]:hover {
+  box-shadow: 0 25px 50px rgba(108, 123, 138, 0.4) !important;
+  transform: translateY(-8px);
+}
+
+.ipso-control[data-category="System"] .ipso-control-header {
+  background: rgba(52, 58, 70, 0.85) !important;
+  border: 1px solid rgba(108, 123, 138, 0.4) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+.ipso-control[data-category="System"] .ipso-control-id {
+  background: linear-gradient(45deg, #2c3e50, #34495e) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ecf0f1 !important;
+  font-weight: 700 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.ipso-control[data-category="System"] .ipso-control-title {
+  background: linear-gradient(45deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.9)) !important;
+  border: 1px solid rgba(236, 240, 241, 0.3) !important;
+  box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3) !important;
+}
+
+/* Estilo específico para Security Object - heredará del System */
+.ipso-control[data-object-id="0"] .ipso-control-title {
+  background: linear-gradient(45deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.9)) !important;
+  border: 1px solid rgba(236, 240, 241, 0.3) !important;
+  box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3) !important;
+}
+
+.ipso-control[data-category="Environmental"] {
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%) !important;
+}
+
+.ipso-control[data-category="Actuator"] {
+  background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%) !important;
+}
+
+.ipso-control[data-category="Power"] {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%) !important;
+}
+
+.ipso-control[data-category="Multimedia"] {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important;
+}
+
+/* Efectos especiales para diferentes categorías */
+@keyframes locationPulse {
+  0%, 100% { 
+    box-shadow: 0 15px 35px rgba(79, 172, 254, 0.3);
+  }
+  50% { 
+    box-shadow: 0 20px 45px rgba(79, 172, 254, 0.5);
+  }
+}
+
+.ipso-control[data-category="location"] {
+  animation: locationPulse 4s ease-in-out infinite;
+}
+
+/* Gradientes adicionales para más belleza */
+.ipso-control[data-category="audio"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.ipso-control[data-category="light"] {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+.ipso-control[data-category="light"] .ipso-control-icon {
+  filter: drop-shadow(0 0 15px rgba(255, 236, 210, 0.7));
+}
+
+/* Efectos hover mejorados */
+.ipso-control[data-category="location"]:hover .ipso-control-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.ipso-control[data-category="sensor"]:hover .ipso-control-icon {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.ipso-control[data-category="actuator"]:hover .ipso-control-icon {
+  transform: scale(1.1) rotate(3deg);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ipso-control {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .resource-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .resource-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .write-controls, .execute-controls {
+    flex-direction: column;
+  }
+}
+
+/* Estilo súper específico para Location Object por título */
+.ipso-control:has(.ipso-control-title:contains("Location Object")) {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+  border: 1px solid rgba(79, 172, 254, 0.3) !important;
+}
+
+/* O por ID #6 */
+.ipso-control:has(.ipso-control-id:contains("#6")) {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+  border: 1px solid rgba(79, 172, 254, 0.3) !important;
+}
+
+/* O forzar por el ícono 🗺️ */
+.ipso-control-icon:contains("🗺️") {
+  font-size: 2.5rem !important;
+}
+
+/* Estilos específicos para Location Object - método directo */
+.ipso-control[data-category="Location"] {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+  border: 1px solid rgba(79, 172, 254, 0.3) !important;
+}
+
+.ipso-control[data-category="Location"]:hover {
+  box-shadow: 0 20px 40px rgba(79, 172, 254, 0.4) !important;
+  transform: translateY(-5px);
+}
+
+.ipso-control[data-category="Location"] .ipso-control-icon {
+  font-size: 2.5rem !important;
+  filter: drop-shadow(0 0 15px rgba(78, 205, 196, 0.5)) !important;
+  animation: float 3s ease-in-out infinite;
+}
+
+.ipso-control[data-category="Location"] .ipso-control-header {
+  background: rgba(79, 172, 254, 0.2) !important;
+  border: 1px solid rgba(79, 172, 254, 0.3) !important;
+}
+
+/* FORZAR estilos para Location Object - súper específico */
+div.ipso-control[data-category="Location"] {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+  border: 1px solid rgba(79, 172, 254, 0.3) !important;
+}
+
+/* Si eso no funciona, usemos nth-child para el objeto #6 */
+.ipso-control:nth-of-type(2) {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+  border: 1px solid rgba(79, 172, 254, 0.3) !important;
+}
+
+/* O por el texto específico */
+.ipso-control-title {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+}
+
+.ipso-control-title:contains("Location") {
+  background: red !important;
+}
